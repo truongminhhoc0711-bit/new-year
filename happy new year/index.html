@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Timeline</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:#000;
+  transition:background 1.4s ease;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  overflow-x:hidden;
+}
+
+.container{
+  width:94%;
+  max-width:420px; /* tối ưu iPhone */
+  text-align:center;
+}
+
+.timeline{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  justify-content:center;
+  margin-bottom:28px;
+}
+
+.dot{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:#111;
+  border:2px solid #ff9acb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  transition:.35s;
+}
+
+.dot.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.dot span{
+  font-size:11px;
+  font-weight:600;
+}
+
+.content{
+  display:none;
+  background:rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:20px;
+  animation:fadeUp .6s ease;
+}
+
+.content img{
+  width:100%;
+  border-radius:14px;
+  margin-bottom:14px;
+  object-fit:cover;
+}
+
+.content h2{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.content p{
+  font-size:14px;
+  line-height:1.5;
+  opacity:.95;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* FIREWORK */
+.firework{
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  animation:explode 1.2s ease-out forwards;
+}
+
+@keyframes explode{
+  from{transform:scale(0);opacity:1}
+  to{transform:scale(14);opacity:0}
+}
+
+/* NÚT NHẠC */
+#musicControl{
+  position:fixed; bottom:20px; right:20px;
+  background:#ff9acb; color:#000; padding:10px 14px; 
+  border-radius:50px; cursor:pointer; font-weight:600;
+  user-select:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="timeline" id="timeline"></div>
+
+  <div class="content" id="content">
